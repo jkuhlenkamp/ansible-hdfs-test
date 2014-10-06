@@ -1,0 +1,10 @@
+# file: test
+
+[aws-namenodes]
+
+[aws-datanodes]
+
+[aws-secondarynamenodes]
+
+[aws-nodes]
+
