@@ -1,10 +1,16 @@
 # file: test
 
 [namenodes]
+node1
 
 [datanodes]
+node2
+node3
 
 [secondary_namenodes]
+node2
 
 [nodes]
-
+node1
+node2
+node3
