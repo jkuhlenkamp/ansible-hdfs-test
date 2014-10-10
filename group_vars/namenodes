@@ -1,4 +1,0 @@
----
-# file: group_vars/namenodes
-
-namenode_datadir: /home/ubuntu/data/namenode
