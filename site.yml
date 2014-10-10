@@ -3,16 +3,16 @@
 
 - hosts: all
   roles:
-   - role: common
+   - role: ntp
 
-- hosts: namenodes
-  roles:
-  - role: namenode
+# - hosts: namenodes
+#   roles:
+#   - role: namenode
 
-- hosts: secondary_namenodes
-  roles:
-  - role: secondary_namenode
+# - hosts: secondary_namenodes
+#   roles:
+#   - role: secondary_namenode
 
-- hosts: datanodes
-  roles:
-  - role: datnode
+# - hosts: datanodes
+#   roles:
+#   - role: datnode
