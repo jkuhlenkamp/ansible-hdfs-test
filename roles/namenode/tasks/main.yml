@@ -1,4 +1,0 @@
----
-# This Playbook deploys and configures a HDFS namenode server
-
-- name: Create 
