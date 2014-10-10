@@ -1,16 +1,20 @@
 # file: test
 
+[cluster]
+node1 ansible_ssh_host=172.31.38.40
+node2 ansible_ssh_host=172.31.38.41
+node3 ansible_ssh_host=172.31.38.42
+
+[ansible_master]
+node3
+
 [namenodes]
 node1
-
-[datanodes]
-node2
-node3
 
 [secondary_namenodes]
 node2
 
-[hdfsnodes]
+[datanodes]
 node1
 node2
 node3
