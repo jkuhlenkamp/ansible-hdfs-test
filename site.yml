@@ -1,7 +1,7 @@
 ---
 # This Playbook is supposed to connfigure a fully configured HDFS cluster.
 
-- hosts: all
+- hosts: cluster
   remote_user: ubuntu
   gather_facts: no
   roles:
