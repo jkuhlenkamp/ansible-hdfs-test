@@ -2,7 +2,7 @@
 # file: /roles/java/tasks/main.yml
 
 - name: Create target dir on remote node
-  file: path={{ java_home }} state=directory
+  file: path={{ java_home }} state=directory recurse=yes
 
 - name: Push Oracle Java 7 to target node and untar
   unarchive: src={{ java_tar_src }} dest={{ java_home }} copy=yes
