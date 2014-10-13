@@ -2,15 +2,15 @@
 # file: /roles/java/tasks/main.yml
 
 - name: Create target dir on remote node
-  file: path={{ java_home }} state=directory recurse=yes
+  file: path={{ java_install_dir }} state=directory recurse=yes
 
 - name: Push Oracle Java 7 to target node and untar
-  unarchive: src={{ java_tar_src }} dest={{ java_home }} copy=yes
+  unarchive: src={{ java_tar_src }} dest={{ java_install_dir }} copy=yes
 
 - name: Set Java_HOME in /etc/profile
   lineinfile:
     dest=/etc/profile
-    line="export JAVA_HOME=/opt/java/64/oracle-java7"
+    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
     regexp=''
     insertafter=EOF
 
@@ -24,7 +24,7 @@
 - name: Set Java_HOME in /etc/skel/.bashrc
   lineinfile:
     dest=/etc/skel/.bashrc
-    line="export JAVA_HOME=/opt/java/64/oracle-java7"
+    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
     regexp=''
     insertafter=EOF
 
