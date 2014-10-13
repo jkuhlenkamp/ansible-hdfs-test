@@ -14,12 +14,12 @@
     regexp=''
     insertafter=EOF
 
-- name: Set Java_HOME in /etc/bashrc
-  lineinfile:
-    dest=/etc/bashrc
-    line="export JAVA_HOME=/opt/java/64/oracle-java7"
-    regexp=''
-    insertafter=EOF
+#- name: Set Java_HOME in /etc/bashrc
+#  lineinfile:
+#    dest=/etc/bashrc
+#    line="export JAVA_HOME=/opt/java/64/oracle-java7"
+#    regexp=''
+#    insertafter=EOF
 
 - name: Set Java_HOME in /etc/skel/.bashrc
   lineinfile:
@@ -28,9 +28,9 @@
     regexp=''
     insertafter=EOF
 
-- name: Set Java_HOME in /root/.bashrc
-  lineinfile:
-    dest=/etc/.bashrc
-    line="export JAVA_HOME=/opt/java/64/oracle-java7"
-    regexp=''
-    insertafter=EOF
+# - name: Set Java_HOME in /root/.bashrc
+#  lineinfile:
+#    dest=/etc/.bashrc
+#    line="export JAVA_HOME=/opt/java/64/oracle-java7"
+#    regexp=''
+#    insertafter=EOF
