@@ -5,7 +5,8 @@
   remote_user: ubuntu
   gather_facts: no
   roles:
-   - role: ntp
+#   - role: ntp
+    - role: java
 
 # - hosts: namenodes
 #   roles:
