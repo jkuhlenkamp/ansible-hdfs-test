@@ -4,4 +4,4 @@
 java_tar_src : /home/ubuntu/jdk-7u67-linux-x64.tar
 
 # Target folder on remote nodes to install Oracle JAva 7
-java_home : /opt/java/64/oracle-java7
+java_install_dir : /opt/java/64/oracle-java7
