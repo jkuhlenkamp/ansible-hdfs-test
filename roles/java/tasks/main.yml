@@ -31,7 +31,7 @@
 
 - name: Set Java_HOME in /etc/bash.bashrc
   lineinfile:
-  dest=/etc/bash.bashrc
+  dest="/etc/bash.bashrc"
   line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
   regexp=''
   insertafter=EOF
