@@ -2,19 +2,19 @@
 
 hadoop_version: 1.2.1
 hadoop_user: ubuntu
-hadoop_tar_src: /home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz
+hadoop_tar_src: "/home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz"
 
-namenode_dns: ip-{{ node1 }}.eu-west-1.compute.internal
-secondary_namenode_dns: ip-{{ node2 }}.eu-west-1.compute.internal
-hadoop_ganglia_metad_ip: {{ node1 }}
+namenode_dns: "ip-{{ node1 }}.eu-west-1.compute.internal"
+secondary_namenode_dns: "ip-{{ node2 }}.eu-west-1.compute.internal"
+hadoop_ganglia_metad_ip: "{{ node1 }}"
 
 dfs_replication: 1
 
 hadoop_install_dir: /home/ubuntu
-hadoop_home_dir: {{ hadoop_install_dir }}/hadoop-{{ hadoop_version }}
+hadoop_home_dir: "{{ hadoop_install_dir }}/hadoop-{{ hadoop_version }}"
 dfs_name_dir: /home/ubuntu/data/nn
 dfs_data_dir: /home/ubuntu/data/dn
 dfs_namenode_checkpoint_dir: /home/ubuntu/data/sn
 
 hadoop_heapsize: 2000
-hadoop_java_home: {{ java_home }}
+hadoop_java_home: "{{ java_home }}"
