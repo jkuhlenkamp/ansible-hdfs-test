@@ -1,2 +1,15 @@
 {# file: /roles/hdfs/templates/core-site.xml.j2 #}
 {# Jinja2 template to render a hdfs core-site.xml configuration file #}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!--  Put site-specific property overrides in this file. -->
+
+<configuration>
+	<property>
+		<name>fs.default.name</name>
+		<value>hdfs://{{ namenode_dns }}:9000/</value> 
+		<description>The name of the default file system. A URI whose scheme and authority determine the FileSystem implementation.</description>
+	</property>
+</configuration>
