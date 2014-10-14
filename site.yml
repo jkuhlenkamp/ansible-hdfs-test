@@ -10,8 +10,6 @@
     - role: java
 #    - role: hdfs
 
----
-
 - hosts: cluster
   remote_user: ubuntu
   gather_facts: no
