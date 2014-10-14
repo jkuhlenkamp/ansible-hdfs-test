@@ -1,3 +1,6 @@
 # file: /roles/hdfs/vars/main.yml
 
 namenode_dns: ip-{{ node1 }}.eu-west-1.compute.internal
+
+hadoop_heapsize: 2000
+hadoop_java_home: {{ java_home }}
