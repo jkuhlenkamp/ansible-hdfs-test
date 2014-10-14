@@ -9,9 +9,11 @@
 #   - role: ntp
     - role: java
 
-# - hosts: namenodes
-#   roles:
-#   - role: namenode
+- hosts: hdfs_nodes
+  remote_user: ubuntu
+  gather_facts: no
+  roles:
+  - role: hdfs
 
 # - hosts: secondary_namenodes
 #   roles:
