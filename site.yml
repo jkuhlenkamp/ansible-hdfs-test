@@ -8,12 +8,13 @@
   roles:
 #   - role: ntp
     - role: java
+    - role: hdfs
 
-- hosts: hdfs_nodes
-  remote_user: ubuntu
-  gather_facts: no
-  roles:
-  - role: hdfs
+#- hosts: hdfs_nodes
+#  remote_user: ubuntu
+#  gather_facts: no
+#  roles:
+#  - role: hdfs
 
 # - hosts: secondary_namenodes
 #   roles:
