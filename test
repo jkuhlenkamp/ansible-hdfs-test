@@ -7,3 +7,8 @@ node3 ansible_ssh_host=172.31.38.42
 
 [ansible_master]
 node3
+
+[hdfs_nodes]
+node1
+node2
+node3
