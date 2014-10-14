@@ -1,5 +1,5 @@
 ---
-# This Playbook is supposed to connfigure a fully configured HDFS cluster.
+# This Playbook is supposed to configure a fully configured HDFS cluster.
 
 - hosts: cluster
   remote_user: ubuntu
@@ -8,13 +8,15 @@
   roles:
 #   - role: ntp
     - role: java
-    - role: hdfs
+#    - role: hdfs
 
-#- hosts: hdfs_nodes
-#  remote_user: ubuntu
-#  gather_facts: no
-#  roles:
-#  - role: hdfs
+---
+
+- hosts: cluster
+  remote_user: ubuntu
+  gather_facts: no
+  roles:
+  - role: hdfs
 
 # - hosts: secondary_namenodes
 #   roles:
