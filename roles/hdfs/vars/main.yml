@@ -1,6 +1,7 @@
 # file: /roles/hdfs/vars/main.yml
 
 hadoop_version: 1.2.1
+hadoop_user: ubuntu
 hadoop_tar_src: /home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz
 
 namenode_dns: ip-{{ node1 }}.eu-west-1.compute.internal
