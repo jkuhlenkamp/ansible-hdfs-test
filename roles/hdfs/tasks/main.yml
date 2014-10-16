@@ -17,8 +17,14 @@
   sudo: yes
   apt: name=unzip state=present
   
-- name: Push Hadoop tar ball to target node and untar
-  unarchive: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" copy=yes
+#- name: Push Hadoop tar ball to target node and untar
+#  unarchive: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" copy=yes
+ # Example from Ansible Playbooks
+- name: Push hadoop tar ball to target node
+  copy: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
+
+- name: Untar Hadoop tar ball, overwriting the previous dir
+  command: tar -zxf {{ hadoop_tar_src }} -C {{ hadoop_install_dir }} --strip-components 1 --overwrite --overwrite-dir 
   
 - name: Create conf file '/conf/core-site.xml'
   template: src=core-site.xml.j2 dest={{ hadoop_home_dir }}/conf/core-site.xml owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
