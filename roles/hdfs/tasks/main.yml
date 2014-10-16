@@ -14,6 +14,7 @@
   file: path={{ dfs_namenode_checkpoint_dir }} state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
   
 - name: Install the package unzip via apt package manage
+  sudo: yes
   apt: name=unzip state=present
   
 - name: Push Hadoop tar ball to target node and untar
