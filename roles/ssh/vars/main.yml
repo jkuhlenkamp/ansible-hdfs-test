@@ -1,4 +1,7 @@
 # file: /roles/ssh/vars/main.yml
 
 ssh_home : /home/ubuntu/.ssh
+
 ssh_private_key_target : {{ ssh_home }}/id_rsa
+
+ssh_user : ubuntu
