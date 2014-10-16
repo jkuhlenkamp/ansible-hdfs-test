@@ -1,5 +1,5 @@
 {# file: /roles/hdfs/templates/masters.j2 #}
 {# Jinja2 template to render a HDFS masters configuration file #}
-{{ node1.ansible_ssh_host }}
-{{ node2.ansible_ssh_host }}
-{{ node3.ansible_ssh_host }}
+{{ node1_private_ip }}
+{{ node2_private_ip }}
+{{ node3_private_ip }}
