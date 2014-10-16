@@ -1,4 +1,4 @@
 # file: /roles/ssh/tasks/main.yml
 
-# - name: Push ssh key file to remote node
-#  copy: src={{ ssh_private_key_target }} dest="{{ ssh_private_key_target }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=0600
+- name: Push ssh key file to remote node
+  copy: src={{ ssh_private_key_target }} dest="{{ ssh_private_key_target }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=0600
