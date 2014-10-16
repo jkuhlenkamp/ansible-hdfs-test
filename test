@@ -4,14 +4,14 @@
 # node1 ansible_ssh_host=172.31.38.40
 # node2 ansible_ssh_host=172.31.38.41
 # node3 ansible_ssh_host=172.31.38.42
-node1
-node2
-node3
+node1_private_ip
+node2_private_ip
+node3_private_ip
 
 [ansible_master]
-node3
+node3_private_ip
 
 [hdfs_nodes]
-node1
-node2
-node3
+node1_private_ip
+node2_private_ip
+node3_private_ip
