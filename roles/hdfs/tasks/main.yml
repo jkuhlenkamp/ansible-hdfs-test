@@ -13,6 +13,9 @@
 - name: Create dir 'dfs.namenode.checkpoint.dir' on remote node
   file: path={{ dfs_namenode_checkpoint_dir }} state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
   
+- name: Install the package unzip via apt package manage
+  apt: name=unzip state=present
+  
 - name: Push Hadoop tar ball to target node and untar
   unarchive: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" copy=yes
   
