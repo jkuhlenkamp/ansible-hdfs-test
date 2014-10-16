@@ -14,6 +14,7 @@
   remote_user: ubuntu
   gather_facts: no
   roles:
+  - role: ssh
   - role: hdfs
 
 # - hosts: secondary_namenodes
