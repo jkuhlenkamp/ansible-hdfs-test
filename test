@@ -1,9 +1,12 @@
 # file: test
 
 [cluster]
-node1 ansible_ssh_host=172.31.38.40
-node2 ansible_ssh_host=172.31.38.41
-node3 ansible_ssh_host=172.31.38.42
+# node1 ansible_ssh_host=172.31.38.40
+# node2 ansible_ssh_host=172.31.38.41
+# node3 ansible_ssh_host=172.31.38.42
+node1
+node2
+node3
 
 [ansible_master]
 node3
