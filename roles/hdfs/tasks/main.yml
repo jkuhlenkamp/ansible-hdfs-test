@@ -21,7 +21,7 @@
 #  unarchive: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" copy=yes
  # Example from Ansible Playbooks
 - name: Push hadoop tar ball to target node
-  copy: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
+  copy: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" owner={{ hadoop_user }} group={{ hadoop_user }} mode=0664
 
 - name: Untar Hadoop tar ball, overwriting the previous dir
   command: tar -zxf {{ hadoop_tar_src }} -C {{ hadoop_install_dir }} --strip-components 1 --overwrite --overwrite-dir 
