@@ -17,4 +17,5 @@ dfs_data_dir: /home/ubuntu/data/dn
 dfs_namenode_checkpoint_dir: /home/ubuntu/data/sn
 
 hadoop_heapsize: 2000
+# [2DO: Import Java home dir from java role]
 hadoop_java_home: /opt/java/64/oracle-java7/jdk1.7.0_67/
