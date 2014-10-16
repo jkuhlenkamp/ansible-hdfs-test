@@ -1,5 +1,5 @@
 # file: group_vars/cluster
 
-node1_private_ip: 172.31.38.40
+node1_private_ip: 172.31.38.42
 node2_private_ip: 172.31.38.41
-node3_private_ip: 172.31.38.42
+node3_private_ip: 172.31.38.40
