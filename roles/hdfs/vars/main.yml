@@ -4,9 +4,9 @@ hadoop_version: 1.2.1
 hadoop_user: ubuntu
 hadoop_tar_src: "/home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz"
 
-namenode_dns: "ip-{{ node1 }}.eu-west-1.compute.internal"
-secondary_namenode_dns: "ip-{{ node2 }}.eu-west-1.compute.internal"
-hadoop_ganglia_metad_ip: "{{ node1 }}"
+namenode_dns: "ip-{{ node1.ansible_ssh_host }}.eu-west-1.compute.internal"
+secondary_namenode_dns: "ip-{{ node2.ansible_ssh_host }}.eu-west-1.compute.internal"
+hadoop_ganglia_metad_ip: "{{ node1.ansible_ssh_host }}"
 
 dfs_replication: 1
 
