@@ -4,6 +4,9 @@
 - name: Create hdfs target dir on remote node
   file: path={{ hadoop_install_dir }} state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
   
+- name: Clean hdfs data dir on remote node
+  file: path={{ hadoop_data_dir }} state=absent
+  
 - name: Create dir 'dfs.name.dir' on remote node
   file: path={{ dfs_name_dir }} state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
   
