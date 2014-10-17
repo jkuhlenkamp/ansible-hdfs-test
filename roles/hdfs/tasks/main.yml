@@ -56,5 +56,5 @@
   sudo: yes
   
 - name: Create dir 'HADOOP_HOME/logs' on remote node
-  file: path={{ dfs_name_dir }} state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
+  file: path={{ hadoop_home_dir }}/logs state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
   
