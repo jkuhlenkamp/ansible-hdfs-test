@@ -18,6 +18,7 @@ hadoop_data_dir: "{{ hadoop_install_dir }}/data"
 dfs_name_dir: "{{ hadoop_data_dir }}/nn"
 dfs_data_dir: "{{ hadoop_data_dir }}/dn"
 dfs_namenode_checkpoint_dir: "{{ hadoop_data_dir }}/sn"
+dfs_tmp_dir: "{{ hadoop_data_dir }}/tmp"
 
 hadoop_heapsize: 2000
 # [2DO: Import Java home dir from java role]
