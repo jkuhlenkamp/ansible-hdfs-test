@@ -50,6 +50,11 @@
   
 - name: Create conf file '/conf/slaves'
   template: src=slaves.j2 dest={{ hadoop_home_dir }}/conf/slaves owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
+
+- name: Remove dir 'HADOOP_HOME/logs' on remote node
+  file: path={{ hadoop_home_dir }}/logs state=absent
+  sudo: yes
   
-- name: Clean Log dir
-  shell: rm {{ hadoop_home_dir }}/logs/*
+- name: Create dir 'HADOOP_HOME/logs' on remote node
+  file: path={{ dfs_name_dir }} state=directory recurse=yes owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
+  
