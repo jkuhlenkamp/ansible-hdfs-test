@@ -46,3 +46,6 @@
   
 - name: Create conf file '/conf/slaves'
   template: src=slaves.j2 dest={{ hadoop_home_dir }}/conf/slaves owner={{ hadoop_user }} group={{ hadoop_user }} mode=0755
+  
+- name: Clean Log dir
+  shell: rm {{ hadoop_home_dir }}/logs/*
