@@ -9,7 +9,7 @@
   sudo: yes
   
 - name: Set permissions on SSH private key file to 600
-  command: chmod 600 {{ ssh_private_key_target }}
+  command: "chmod 600 /home/ubuntu/.ssh/id_rsa" 
   sudo: yes
   
 #- name: Set permissions on SSH folder
