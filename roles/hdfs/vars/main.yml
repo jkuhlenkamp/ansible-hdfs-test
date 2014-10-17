@@ -11,10 +11,13 @@ hadoop_ganglia_metad_ip: "{{ node1_private_ip }}"
 dfs_replication: 1
 
 hadoop_install_dir: /home/ubuntu
+
 hadoop_home_dir: "{{ hadoop_install_dir }}/hadoop-{{ hadoop_version }}"
-dfs_name_dir: /home/ubuntu/data/nn
-dfs_data_dir: /home/ubuntu/data/dn
-dfs_namenode_checkpoint_dir: /home/ubuntu/data/sn
+hadoop_data_dir: "{{ hadoop_install_dir }}/data"
+
+dfs_name_dir: "{{ hadoop_data_dir }}/nn"
+dfs_data_dir: "{{ hadoop_data_dir }}/dn"
+dfs_namenode_checkpoint_dir: "{{ hadoop_data_dir }}/sn"
 
 hadoop_heapsize: 2000
 # [2DO: Import Java home dir from java role]
