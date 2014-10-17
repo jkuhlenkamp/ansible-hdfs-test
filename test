@@ -6,7 +6,8 @@
 # node3 ansible_ssh_host=172.31.38.42
 node1_private_ip
 node2_private_ip
-node3_private_ip
+# node3_private_ip
+localhost
 
 [ansible_master]
 node3_private_ip
@@ -14,4 +15,5 @@ node3_private_ip
 [hdfs_nodes]
 node1_private_ip
 node2_private_ip
-node3_private_ip
+# node3_private_ip
+localhost
