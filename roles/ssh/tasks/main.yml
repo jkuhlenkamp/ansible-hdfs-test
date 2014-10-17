@@ -1,4 +1,7 @@
 # file: /roles/ssh/tasks/main.yml
 
+- name: Remove ssh key file on remote node
+  file: path={{ ssh_private_key_target }} state=absent
+
 - name: Push ssh key file to remote node
   copy: src={{ ssh_private_key_target }} dest="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=600
