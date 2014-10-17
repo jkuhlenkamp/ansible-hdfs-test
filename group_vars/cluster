@@ -1,5 +1,11 @@
 # file: group_vars/cluster
 
+# Private AWS ip adresses
 node1_private_ip: 172.31.38.40
 node2_private_ip: 172.31.38.41
 node3_private_ip: 172.31.38.42
+
+# Private AWS DNS
+node1_private_dns: "ip-{{ node1_private_ip }}.eu-west-1.compute.internal"
+node2_private_dns: "ip-{{ node2_private_ip }}.eu-west-1.compute.internal"
+node3_private_dns: "ip-{{ node3_private_ip }}.eu-west-1.compute.internal"
