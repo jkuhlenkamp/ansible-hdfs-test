@@ -10,7 +10,8 @@
 - name: Set permissions on SSH private key file to 600
   shell: chmod 600 /home/ubuntu/.ssh/id_rsa
   register: chmod_cmd
-  - debug: msg="{{ chmod_cmd.stdout }}"
+  
+- debug: var=chmod_cmd.stdout_lines
   
 #- name: Set permissions on SSH folder
 #  file: path="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=0700
