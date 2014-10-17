@@ -5,7 +5,7 @@
   sudo: yes
 
 - name: Push ssh key file to remote node
-  copy: src={{ ssh_private_key_target }} dest="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=0600
+  copy: src={{ ssh_private_key_target }} dest="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=mode="u+rw,g-rwx,o-rwx"
   
 - name: Set permissions on SSH folder
   file: path="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=0700
