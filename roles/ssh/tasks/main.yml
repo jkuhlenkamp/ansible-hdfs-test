@@ -7,6 +7,9 @@
 - name: Push ssh key file to remote node
   copy: src={{ ssh_private_key_target }} dest="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode="u+rw,g-rwx,o-rwx"
   
+- name: Set permissions on SSH private key file to 600
+  command: chmod 600 {{ ssh_private_key_target }}
+  
 #- name: Set permissions on SSH folder
 #  file: path="{{ ssh_home }}/" owner={{ ssh_user }} group={{ ssh_user }} mode=0700
   
