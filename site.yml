@@ -4,7 +4,7 @@
 - hosts: cluster
   remote_user: ubuntu
   sudo: true
-  gather_facts: no
+  gather_facts: yes
   roles:
 #   - role: ntp
     - role: java
@@ -12,7 +12,7 @@
 
 - hosts: cluster
   remote_user: ubuntu
-  gather_facts: no
+  gather_facts: yes
   roles:
   - role: ssh
   - role: hdfs
