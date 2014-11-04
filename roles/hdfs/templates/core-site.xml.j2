@@ -8,7 +8,7 @@
 <configuration>
 	<property>
 		<name>fs.default.name</name>
-		<value>hdfs://{{ hostvars[groups['tag_hadoop_master'][0]]['ansible_eth0']['ipv4']['address'] }}:9000/</value> 
+		<value>hdfs://{{ namenode_dns }}:9000/</value> 
 		<description>The name of the default file system. A URI whose scheme and authority determine the FileSystem implementation.</description>
 	</property>
 	<property>
