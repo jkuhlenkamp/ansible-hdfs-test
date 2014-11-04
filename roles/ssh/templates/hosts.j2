@@ -1,5 +1,5 @@
 {# file: file: /roles/ssh/templates/hosts.j2 #}
 {# Jinja2 template to render a /etc/hosts file #}
-{% for host in groups['all'] %}
+{% for host in groups['tag_Name_giraph'] %}
 {{ hostvars[host]['ansible_eth0']['ipv4']['address'] }} {{ host }}
 {% endfor %}
