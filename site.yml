@@ -15,6 +15,7 @@
   gather_facts: yes
   roles:
   - role: java
+  - role: aws
 
 - hosts: tag_Name_giraph
   remote_user: ubuntu
