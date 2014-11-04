@@ -7,6 +7,7 @@
   gather_facts: yes
   roles:
   - role: ssh
+  - role: aws
 #   - role: ntp
 
 - hosts: tag_Name_giraph
@@ -15,7 +16,6 @@
   gather_facts: yes
   roles:
   - role: java
-  - role: aws
 
 - hosts: tag_Name_giraph
   remote_user: ubuntu
