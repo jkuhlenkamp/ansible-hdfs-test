@@ -2,7 +2,9 @@
 # file: /roles/aws/tasks/main.yml
 
 - name: Install Python
+  sudo: yes
   apt: name=python update_cache=yes
   
 - name: Install AWS CLI
-  command: pip install awscli
+  sudo: yes
+  pip: name=awscli
