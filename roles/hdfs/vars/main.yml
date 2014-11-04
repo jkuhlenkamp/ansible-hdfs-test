@@ -4,6 +4,7 @@ hadoop_version: 1.2.1
 hadoop_user: ubuntu
 hadoop_tar_src: "/home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz"
 
+namenode_ip: "{{ hostvars[groups['tag_hadoop_namenode'][0]]['ansible_eth0']['ipv4']['address'] }}"
 namenode_dns: "ip-{{ hostvars[groups['tag_hadoop_namenode'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
 secondary_namenode_dns: "ip-{{ hostvars[groups['tag_hadoop_secnamenode'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
 hadoop_ganglia_metad_ip: "{{ hostvars[groups['tag_ganglia_metad'][0]]['ansible_eth0']['ipv4']['address'] }}"
