@@ -1,7 +1,7 @@
 ---
 # This Playbook is supposed to configure a fully configured HDFS cluster.
 
-- hosts: all
+- hosts: giraph
   remote_user: ubuntu
   sudo: true
   gather_facts: yes
