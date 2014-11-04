@@ -1,5 +1,5 @@
 {# file: /roles/hdfs/templates/masters.j2 #}
 {# Jinja2 template to render a HDFS masters configuration file #}
-{% for host in groups['tag_hdfs_namenode'] %}
+{% for host in groups['tag_namenode_hdfs'] %}
 {{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}
 {% endfor %}
