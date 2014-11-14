@@ -1,0 +1,6 @@
+---
+# file: /roles/hbase/tasks/main.yml
+
+- name: Create hbase target dir on remote node
+  file: path={{ hbase_install_dir }} state=directory recurse=yes owner={{ hbase_user }} group={{ hbase_user }} mode=0755
+  sudo: yes
