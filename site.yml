@@ -1,7 +1,7 @@
 ---
 # This Playbook is supposed to configure a fully configured HDFS cluster.
 
-- hosts: tag_Name_giraph
+- hosts: tag_basic_true
   remote_user: ubuntu
   sudo: true
   gather_facts: yes
@@ -10,14 +10,14 @@
   - role: aws
 #   - role: ntp
 
-- hosts: tag_Name_giraph
+- hosts: tag_java_true
   remote_user: ubuntu
   sudo: true
   gather_facts: yes
   roles:
   - role: java
 
-- hosts: tag_Name_giraph
+- hosts: tag_hdfs_true
   remote_user: ubuntu
   gather_facts: yes
   roles:
