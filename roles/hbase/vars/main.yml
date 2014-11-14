@@ -1,0 +1,21 @@
+---
+# file: /roles/hbase/vars/main.yml
+
+hbase_version: 1.2.1
+hbase_user: ubuntu
+hbase_tar_src: "/home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz"
+
+hmaster_ip: "{{ hostvars[groups['tag_namenode_hdfs'][0]]['ansible_eth0']['ipv4']['address'] }}"
+
+dfs_replication: 1
+
+hbase_install_dir: /home/ubuntu
+
+hbase_home_dir: "{{ hbase_install_dir }}/hbase-{{ hbase_version }}"
+hbase_data_dir: "{{ hbase_install_dir }}/data"
+
+db_regionserver_dir: "{{ hbase_data_dir }}/rn"
+
+hbase_heapsize: 2000
+# [2DO: Import Java home dir from java role]
+hbase_java_home: /opt/java/64/oracle-java7/jdk1.7.0_67/
