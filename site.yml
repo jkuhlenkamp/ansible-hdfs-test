@@ -21,7 +21,20 @@
   remote_user: ubuntu
   gather_facts: yes
   roles:
+  - role: ssh
+#  - role: aws
+  - role: java
   - role: hdfs
+
+- hosts: tag_hbase_true
+  remote_user: ubuntu
+  gather_facts: yes
+  roles:
+  - role: ssh
+#  - role: aws
+  - role: java
+  - role: hdfs
+  - role: hbase
 
 # - hosts: secondary_namenodes
 #   roles:
