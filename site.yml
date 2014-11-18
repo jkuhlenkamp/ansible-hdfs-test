@@ -1,14 +1,14 @@
 ---
 # This Playbook is supposed to configure a fully configured HDFS cluster.
 
-- hosts: tag_basic_true
+- hosts: tag_aws_true
   remote_user: ubuntu
   sudo: true
   gather_facts: yes
   roles:
   - role: ssh
-  - role: aws
-#   - role: ntp
+# - role: aws
+# - role: ntp
 
 - hosts: tag_java_true
   remote_user: ubuntu
@@ -23,6 +23,7 @@
   roles:
   - role: ssh
 #  - role: aws
+# - role: ntp
   - role: java
   - role: hdfs
 
@@ -32,6 +33,7 @@
   roles:
   - role: ssh
 #  - role: aws
+# - role: ntp
   - role: java
   - role: hdfs
   - role: hbase
