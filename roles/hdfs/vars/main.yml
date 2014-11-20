@@ -1,4 +1,8 @@
 # file: /roles/hdfs/vars/main.yml
+# Expected Inventory Groups
+#   - tag_namenode_hdfs         [2DO: Change to tag_hdfsNamenode_true]
+#   - tag_secnamenode_hdfs      [2DO: Change to tag_hdfsSecondarynamenode_true]
+#   - tag_metad_ganglia         [2DO: Change to tag_gangliaMetad_true]
 
 hadoop_version: 1.2.1
 hadoop_user: ubuntu
