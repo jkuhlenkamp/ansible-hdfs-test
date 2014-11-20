@@ -2,57 +2,38 @@
 # file: /roles/java/tasks/main.yml
 
 - name: Create target dir on remote node
-  file: path={{ java_install_dir }} state=directory recurse=yes
+  file: >
+    path={{ java_install_dir }}
+    state=directory
+    recurse=yes
 
 - name: Push Oracle Java 7 to target node and untar
-  unarchive: src={{ java_tar_src }} dest={{ java_install_dir }} copy=yes
-
-#- name: Install update-alternative for Java
-#  command: /usr/sbin/update-alternatives --install {{ item.masterlink }} {{ item.name }} {{ item.path }} {{ item.prio }}
-#  with_items:
-#    - masterlink: /usr/bin/java
-#      name: java
-#      path: /opt/java/64/oracle-java7/jdk1.7.0_67/bin/java
-#      prio: 17000
-
-# - name: Set update-alternative for Java
-#  command: /usr/sbin/update-alternatives --set {{ item.name }} {{ item.path }} {{ item.prio }}
-#  with_items:
-#    - name: java
-#      path: /opt/java/64/oracle-java7/jdk1.7.0_67/bin/java
-#      prio: 17000
+  unarchive: >
+    src={{ java_tar_src }}
+    dest={{ java_install_dir }}
+    copy=yes
 
 - name: Set Java_HOME in /etc/profile
-  lineinfile:
+  lineinfile: >
     dest=/etc/profile
     line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
-   # regexp=''
-    #insertafter=EOF
 
 - name: Set Java_HOME in /etc/bash.bashrc
-  lineinfile:
+  lineinfile: >
     dest="/etc/bash.bashrc"
     line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
-    #regexp=''
-    #insertafter=EOF
 
 - name: Set Java_HOME in /etc/skel/.bashrc
-  lineinfile:
+  lineinfile: >
     dest=/etc/skel/.bashrc
     line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
-   # regexp=''
-   # insertafter=EOF
 
 - name: Set Java_HOME in /home/ubuntu/.bashrc
-  lineinfile:
+  lineinfile: >
     dest=/home/ubuntu/.bashrc
     line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
-   # regexp=''
-   # insertafter=EOF
     
 - name: Set Java_HOME in /root/.bashrc
-  lineinfile:
+  lineinfile: >
     dest=/root/.bashrc
     line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
-   # regexp=''
-   # insertafter=EOF
