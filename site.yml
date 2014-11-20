@@ -1,7 +1,7 @@
 ---
 # This Playbook is supposed to configure a fully configured HDFS cluster.
 
-- hosts: tag_aws_true
+- hosts: tag_ssh_true
   remote_user: ubuntu
   sudo: true
   gather_facts: yes
