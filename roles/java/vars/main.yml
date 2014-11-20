@@ -1,10 +1,16 @@
 # file: /roles/java/vars/main.yml
+# Expected tar ball format: jdk-{{ java_version_minor }}u{{ java_version_patch }}-linux-x64.tar
 
-# Source folder on Ansible coordinator that contains a Oracle Java 7 tar ball
-java_tar_src : /home/ubuntu/jdk-7u67-linux-x64.tar
+# Version of Oracle Java JDK to install
+java_version_major : 1
+java_version_minor : 7
+java_version_patch : 67
 
-# Target folder on remote nodes to install Oracle JAva 7
-java_install_dir : /opt/java/64/oracle-java7
+# Source folder on Ansible coordinator that contains a Oracle Java tar ball
+java_tar_src : "/home/ubuntu/jdk-{{ java_version_minor }}u{{ java_version_patch }}-linux-x64.tar"
+
+# Target folder on remote nodes to install Oracle Java
+java_install_dir : "/opt/java/64/oracle-java{{ java_version_minor }}"
 
 # Resulting Java home folder
-java_home : /opt/java/64/oracle-java7/jdk1.7.0_67/
+java_home : "{{ java_install_dir }}/jdk{{ java_version_major }}.{{ java_version_minor }}.0_{{ java_version_patch }}/"
