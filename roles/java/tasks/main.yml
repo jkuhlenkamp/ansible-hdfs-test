@@ -16,24 +16,24 @@
 - name: Set Java_HOME in /etc/profile
   lineinfile: >
     dest=/etc/profile
-    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
+    line="export JAVA_HOME={{ java_home }}"
 
 - name: Set Java_HOME in /etc/bash.bashrc
   lineinfile: >
     dest="/etc/bash.bashrc"
-    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
+    line="export JAVA_HOME={{ java_home }}"
 
 - name: Set Java_HOME in /etc/skel/.bashrc
   lineinfile: >
     dest=/etc/skel/.bashrc
-    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
+    line="export JAVA_HOME={{ java_home }}"
 
 - name: Set Java_HOME in /home/ubuntu/.bashrc
   lineinfile: >
     dest=/home/ubuntu/.bashrc
-    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
+    line="export JAVA_HOME={{ java_home }}"
     
 - name: Set Java_HOME in /root/.bashrc
   lineinfile: >
     dest=/root/.bashrc
-    line="export JAVA_HOME=/opt/java/64/oracle-java7/jdk1.7.0_67/"
+    line="export JAVA_HOME={{ java_home }}"
