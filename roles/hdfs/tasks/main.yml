@@ -58,17 +58,17 @@
     name=unzip 
     state=present
   
-# - name: Push Hadoop tar ball to target node and untar
-#  unarchive: >
-#   src={{ hadoop_tar_src }}
-#    dest="{{ hadoop_install_dir }}/"
-#    copy=yes
+- name: Push Hadoop tar ball to target node and untar
+  unarchive: >
+    src={{ hadoop_tar_src }}
+    dest="{{ hadoop_install_dir }}/"
+    copy=yes
 
-- name: Push hadoop tar ball to target node
-  copy: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" owner={{ hadoop_user }} group={{ hadoop_user }} mode=0664
+#- name: Push hadoop tar ball to target node
+#  copy: src={{ hadoop_tar_src }} dest="{{ hadoop_install_dir }}/" owner={{ hadoop_user }} group={{ hadoop_user }} mode=0664
 
-- name: Untar Hadoop tar ball, overwriting the previous dir
-  command: tar xvf {{ hadoop_tar_src }} -C {{ hadoop_install_dir }} --strip-components 1 --overwrite --overwrite-dir 
+#- name: Untar Hadoop tar ball, overwriting the previous dir
+#  command: tar xvf {{ hadoop_tar_src }} -C {{ hadoop_install_dir }} --strip-components 1 --overwrite --overwrite-dir 
   
 - name: Create conf file '/conf/core-site.xml'
   template: >
