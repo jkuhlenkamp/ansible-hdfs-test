@@ -16,8 +16,9 @@ hbase_install_dir: /home/ubuntu
 
 hbase_home_dir: "{{ hbase_install_dir }}/hbase-{{ hbase_version }}"
 hbase_data_dir: "{{ hbase_install_dir }}/data"
+zookeeper_data_dir: "{{ hbase_data_dir}}/zk"
+regionserver_data_dir: "{{ hbase_data_dir }}/rn"
 
-db_regionserver_dir: "{{ hbase_data_dir }}/rn"
 
 hbase_heapsize: 2000
 # [2DO: Import Java home dir from java role]
