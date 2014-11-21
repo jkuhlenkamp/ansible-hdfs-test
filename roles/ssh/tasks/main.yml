@@ -13,6 +13,7 @@
     state=absent
 
 - name: Push ssh key file to remote node
+  sudo: yes
   copy: >
     src={{ ssh_private_key_source }}
     dest="{{ ssh_home }}/"
@@ -21,6 +22,7 @@
     mode="0600"
   
 - name: Set permissions on SSH private key file to 600
+  sudo: yes
   shell: chmod 600 /home/ubuntu/.ssh/id_rsa
   register: chmod_cmd
   
