@@ -11,3 +11,95 @@
 #    group={{ hbase_user }} 
 #    mode=0755
 
+- name: Remove dir 'hbase.zookeeper.property.dataDir' on remote node
+  sudo: yes
+  file: >
+    path={{ zookeeper_data_dir }}
+    state=absent
+
+    
+- name: Create dir 'hbase.zookeeper.property.dataDir' on remote node
+  sudo: yes
+  file: >
+    path={{ zookeeper_data_dir }}
+    state=directory
+    recurse=yes
+    owner={{ hadoop_user }}
+    group={{ hadoop_user }}
+    mode=0755
+    
+- name: Remove dir 'hbase.tmp.dir' on remote node
+  sudo: yes
+  file: >
+    path={{ regionserver_data_dir }}
+    state=absent
+
+- name: Create dir 'hbase.zookeeper.property.dataDir' on remote node
+  sudo: yes
+  file: >
+    path={{ regionserver_data_dir }}
+    state=directory
+    recurse=yes
+    owner={{ hadoop_user }}
+    group={{ hadoop_user }}
+    mode=0755
+    
+- name: Push HBase tar ball to target node and untar
+  sudo: yes
+  unarchive: >
+    src={{ hbase_tar_src }}
+    dest="{{ hbase_install_dir }}/"
+    copy=yes
+    
+- name: Create configuration file '$HBASE_HOME/conf/hadoop-metrics.properties'
+  template: >
+    src=hadoop-metrics.properties.j2
+    dest={{ hbase_home_dir }}/conf/hadoop-metrics.properties
+    owner={{ hbase_user }}
+    group={{ hbase_user }}
+    mode=0755
+  
+- name: Create configuration file '$HBASE_HOME/conf/hbase-env.sh'
+  sudo: yes
+  template: >
+    src=hbase-env.sh.j2
+    dest={{ hbase_home_dir }}/conf/hbase-env.sh
+    owner={{ hbase_user }}
+    group={{ hbase_user }}
+    mode=0755
+  
+- name: Create configuration file '$HBASE_HOME/conf/hbase-site.xml.j2'
+  sudo: yes
+  template: >
+    src=hbase-site.xml.j2
+    dest={{ hbase_home_dir }}/conf/hbase-site.xml
+    owner={{ hbase_user }}
+    group={{ hbase_user }}
+    mode=0755
+    
+- name: Create configuration file '$HBASE_HOME/conf/regionservers.j2'
+  sudo: yes
+  template: >
+    src=regionservers.j2
+    dest={{ hbase_home_dir }}/conf/regionservers
+    owner={{ hbase_user }}
+    group={{ hbase_user }}
+    mode=0755
+    
+- name: Remove dir '$HBASE_HOME/logs' on remote node
+  sudo: yes
+  file: >
+    path={{ hbase_home_dir }}/logs
+    state=absent
+  
+  
+- name: Create dir '$HBASE_HOME/logs' on remote node
+  sudo: yes
+  file: >
+    path={{ hadoop_home_dir }}/logs
+    state=directory
+    recurse=yes
+    owner={{ hbase_user }}
+    group={{ hbase_user }}
+    mode=0755
+  
