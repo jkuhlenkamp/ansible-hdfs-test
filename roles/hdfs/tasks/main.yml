@@ -1,14 +1,14 @@
 ---
 # file: /roles/hdfs/tasks/main.yml
 
-- name: Create hdfs target dir on remote node
-  file: >
-    path={{ hadoop_install_dir }} 
-    state=directory recurse=yes 
-    owner={{ hadoop_user }} 
-    group={{ hadoop_user }} 
-    mode=0755
-  sudo: yes
+#- name: Create hdfs target dir on remote node
+#  file: >
+#    path={{ hadoop_install_dir }} 
+#    state=directory recurse=yes 
+#    owner={{ hadoop_user }} 
+#    group={{ hadoop_user }} 
+#    mode=0755
+#  sudo: yes
   
 - name: Clean hdfs data dir on remote node
   file: >
