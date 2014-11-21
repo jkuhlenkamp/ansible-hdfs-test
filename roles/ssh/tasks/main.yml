@@ -1,16 +1,16 @@
 # file: /roles/ssh/tasks/main.yml
 
 - name: Create conf file '/etc/hosts'
+  sudo : yes
   template: > 
     src=hosts.j2 
     dest=/etc/hosts mode=0644
-  sudo : yes
 
 - name: Remove ssh key file on remote node
+  sudo: yes
   file: > 
     path={{ ssh_private_key_target }}
     state=absent
-  sudo: yes
 
 - name: Push ssh key file to remote node
   copy: >
