@@ -6,7 +6,7 @@
 
 hadoop_version: 1.2.1
 hadoop_user: ubuntu
-hadoop_tar_src: "/home/ubuntu/hadoop-{{ hadoop_version }}.tar.gz"
+hadoop_tar_src: "/home/jk/ansible/software/hadoop-{{ hadoop_version }}.tar.gz"
 
 namenode_ip: "{{ hostvars[groups['tag_namenode_hdfs'][0]]['ansible_eth0']['ipv4']['address'] }}"
 namenode_dns: "ip-{{ hostvars[groups['tag_namenode_hdfs'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
