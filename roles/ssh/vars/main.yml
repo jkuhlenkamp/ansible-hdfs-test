@@ -4,5 +4,5 @@ ssh_user : ubuntu
 user_home : "/home/{{ ssh_user }}"
 ssh_home : "{{ user_home }}/.ssh"
 
-ssh_private_key_source : "{{ ssh_home }}/id_rsa"
+ssh_private_key_source : "/home/jk/.ssh/id_rsa"
 ssh_private_key_target : "{{ ssh_home }}/id_rsa"
