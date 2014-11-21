@@ -1,17 +1,17 @@
 # file: /roles/hdfs/vars/main.yml
 # Expected Inventory Groups
-#   - tag_namenode_hdfs         [2DO: Change to tag_hdfsNamenode_true]
-#   - tag_secnamenode_hdfs      [2DO: Change to tag_hdfsSecondarynamenode_true]
-#   - tag_metad_ganglia         [2DO: Change to tag_gangliaMetad_true]
+#   - tag_namenode_true         [2DO: Change to tag_hdfsNamenode_true]
+#   - tag_secondarynamenode_true     [2DO: Change to tag_hdfsSecondarynamenode_true]
+#   - tag_gmetad_true      [2DO: Change to tag_gangliaMetad_true]
 
 hadoop_version: 1.2.1
 hadoop_user: ubuntu
 hadoop_tar_src: "/home/jk/ansible/software/hadoop-{{ hadoop_version }}.tar.gz"
 
-namenode_ip: "{{ hostvars[groups['tag_namenode_hdfs'][0]]['ansible_eth0']['ipv4']['address'] }}"
-namenode_dns: "ip-{{ hostvars[groups['tag_namenode_hdfs'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
-secondary_namenode_dns: "ip-{{ hostvars[groups['tag_secnamenode_hdfs'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
-hadoop_ganglia_metad_ip: "{{ hostvars[groups['tag_metad_ganglia'][0]]['ansible_eth0']['ipv4']['address'] }}"
+namenode_ip: "{{ hostvars[groups['tag_namenode_true'][0]]['ansible_eth0']['ipv4']['address'] }}"
+namenode_dns: "ip-{{ hostvars[groups['tag_namenode_true'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
+secondary_namenode_dns: "ip-{{ hostvars[groups['tag_secondarynamenode_true'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
+hadoop_ganglia_metad_ip: "{{ hostvars[groups['tag_gmetad_true'][0]]['ansible_eth0']['ipv4']['address'] }}"
 
 dfs_replication: 1
 
