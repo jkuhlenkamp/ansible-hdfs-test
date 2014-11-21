@@ -2,38 +2,45 @@
 # file: /roles/java/tasks/main.yml
 
 - name: Create target dir on remote node
+  sudo: yes
   file: >
     path={{ java_install_dir }}
     state=directory
     recurse=yes
 
 - name: Push Oracle Java 7 to target node and untar
+  sudo: yes
   unarchive: >
     src={{ java_tar_src }}
     dest={{ java_install_dir }}
     copy=yes
 
 - name: Set Java_HOME in /etc/profile
+  sudo: yes
   lineinfile: >
     dest=/etc/profile
     line="export JAVA_HOME={{ java_home }}"
 
 - name: Set Java_HOME in /etc/bash.bashrc
+  sudo: yes
   lineinfile: >
     dest="/etc/bash.bashrc"
     line="export JAVA_HOME={{ java_home }}"
 
 - name: Set Java_HOME in /etc/skel/.bashrc
+  sudo: yes
   lineinfile: >
     dest=/etc/skel/.bashrc
     line="export JAVA_HOME={{ java_home }}"
 
 - name: Set Java_HOME in /home/ubuntu/.bashrc
+  sudo: yes
   lineinfile: >
     dest=/home/ubuntu/.bashrc
     line="export JAVA_HOME={{ java_home }}"
     
 - name: Set Java_HOME in /root/.bashrc
+  sudo: yes
   lineinfile: >
     dest=/root/.bashrc
     line="export JAVA_HOME={{ java_home }}"
