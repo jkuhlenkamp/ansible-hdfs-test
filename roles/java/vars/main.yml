@@ -7,7 +7,7 @@ java_version_minor : 7
 java_version_patch : 67
 
 # Source folder on Ansible coordinator that contains a Oracle Java tar ball
-java_tar_src : "/home/ubuntu/jdk-{{ java_version_minor }}u{{ java_version_patch }}-linux-x64.tar"
+java_tar_src : "/home/jk/ansible/software/jdk-{{ java_version_minor }}u{{ java_version_patch }}-linux-x64.tar"
 
 # Target folder on remote nodes to install Oracle Java
 java_install_dir : "/opt/java/64/oracle-java{{ java_version_minor }}"
