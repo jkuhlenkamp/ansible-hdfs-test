@@ -6,6 +6,9 @@ hbase_user: ubuntu
 hbase_tar_src: "/home/jk/ansible/software/hbase-{{ hbase_version }}.tar.gz"
 
 hmaster_ip: "{{ hostvars[groups['tag_master_true'][0]]['ansible_eth0']['ipv4']['address'] }}"
+namenode_dns: "ip-{{ hostvars[groups['tag_namenode_true'][0]]['ansible_eth0']['ipv4']['address'] }}.eu-west-1.compute.internal"
+zookeeper_ip: "{{ hostvars[groups['tag_zookeeper_true'][0]]['ansible_eth0']['ipv4']['address'] }}"
+gmetad_ip: "{{ hostvars[groups['tag_gmetad_true'][0]]['ansible_eth0']['ipv4']['address'] }}"
 
 dfs_replication: 1
 
