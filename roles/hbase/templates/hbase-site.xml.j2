@@ -1,0 +1,123 @@
+{# file: /roles/hbase/templates/hbase-site.xml.j2 #}
+{# Jinja2 template to render a HBase hbase-site.xml configuration file #}
+
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/**
+ * Copyright 2010 The Apache Software Foundation
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<configuration>
+	<property>
+		<name>hbase.rootdir</name>
+		<value>hdfs://{{ namenode_dns }}:9000/hbase</value>
+	</property>
+	<property>
+		<name>hbase.zookeeper.quorum</name>
+		<value>{{ zookeeper_ip }}</value>
+	</property>
+	<!--
+	/**
+	*  (Minor) Compaction
+	*/
+	-->
+	<property>
+		<name>hbase.store.compaction.ratio</name>
+		<value>1.2f</value>
+		<description>Ratio used in compaction file selection algorithm (default 1.2f). </description>
+	</property>
+	<property>
+		<name>hbase.hstore.compaction.min</name>
+		<value>2</value>
+		<description>Minimum number of StoreFiles per Store to be selected for a compaction to occur (default 2).</description>
+	</property>
+		<property>
+		<name>hbase.hstore.compaction.max</name>
+		<value>10</value>
+		<description>Max number of HStoreFiles to compact per 'minor' compaction. </description>
+	</property>
+	<property>
+		<name>hbase.hstore.compaction.min.size</name>
+		<value>hbase.hregion.memstore.flush.size</value>
+		<description>Any StoreFile smaller than this setting with automatically be a candidate for compaction. Defaults to hbase.hregion.memstore.flush.size (128 mb)</description>
+	</property>
+	<property>
+		<name>hbase.hstore.compaction.max.size</name>
+		<value>Long.MAX_VALUE</value>
+		<description>Any StoreFile larger than this setting with automatically be excluded from compaction (default Long.MAX_VALUE).</description>
+	</property>
+	<!--
+	/**
+	*  (Major) Compaction
+	*/
+	-->
+	<property>
+		<name>hbase.hstore.compactionThreshold</name>
+		<value>5</value>
+		<description>If more than this number of HStoreFiles in any one HStore (one HStoreFile is written per flush of memstore) then a compaction is run to rewrite all HStoreFiles files as one. Larger numbers put off compaction but when it runs, it takes longer to complete. </description>
+	</property>
+	<property>
+		<name>hbase.hregion.majorcompaction</name>
+		<value>0</value>
+		<description>The time (in miliseconds) between 'major' compactions of all HStoreFiles in a region. Default: 1 day. Set to 0 to disable automated major compactions.</description>
+	</property>
+	<!--
+	/**
+	*  Cluster
+	*/
+	-->
+	<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+		<description>The actual number of replications can be specified when the file is created.</description>
+	</property>
+	<property>
+		<name>hbase.cluster.distributed</name>
+		<value>true</value>
+	</property>
+	<property>
+		<name>hbase.zookeeper.property.clientPort</name>
+		<value>2222</value>
+	</property>
+	<property>
+		<name>hbase.zookeeper.property.dataDir</name>
+		<value>/home/ubuntu/data/zk</value>
+	</property>
+	<property>
+		<name>hbase.tmp.dir</name>
+		<value>/home/ubuntu/data/rn</value>
+	</property>
+	 <property>
+		<name>hfile.block.cache.size</name>
+		<value>0.5</value>
+		<description>
+          Percentage of maximum heap (-Xmx setting) to allocate to block cache
+          used by HFile/StoreFile. Default of 0.4 means allocate 40%.
+          Set to 0 to disable.
+		</description>
+	</property>
+	<property>
+		<name>hbase.regionserver.global.memstore.upperLimit</name>
+		<value>0.3</value>
+		<description>Maximum size of all memstores in a region server before new
+		updates are blocked and flushes are forced. Defaults to 40% of heap
+		</description>
+  </property>
+</configuration>
