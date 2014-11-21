@@ -1,0 +1,23 @@
+---
+# file: /roles/ycsb/tasks/main.yml
+
+- name: Remove existing YCSB installation on remote node
+  sudo: yes
+  file: >
+    path={{ ycsb_home_dir }}
+    state=absent
+    
+- name: Push YCSB tar ball to target node and untar
+  sudo: yes
+  unarchive: >
+    src={{ ycsb_tar_src }}
+    dest="{{ ycsb_install_dir }}/"
+    copy=yes
+    
+- name: Create configuration file '$YCSB_HOME/bin/ycsb.sh'
+  template: >
+    src=ycsb.sh.j2
+    dest={{ ycsb_home_dir }}/bin/ycsb.sh
+    owner={{ ycsb_user }}
+    group={{ ycsb_user }}
+    mode=0755
